@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block body_class %}home{% endblock %}
+{% block base_content %}
+    <div id="content">
+	<div id="top-content">
+	    <div class="top-content-inner">
+		{% placeholder about_teaser %}
+	    </div>
+	</div>
+	<h2 class="category-heading">News</h2>
+	<div id="bottom-content">
+	    <div class="bottom-content-inner">
+		{% placeholder news_teasers %}
+	    </div>
+	</div>
+    </div>
+{% endblock %}
