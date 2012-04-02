@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block body_class %}gallery{% endblock %}
+{% block base_content %}
+    <div id="content">
+	{% placeholder gallery %}
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load thumbnail %}
+
+<h1>{{ gallery.name }}</h1>
+<div id="{{ gallery.name|lower }}" class="gallery">
+    <a href="#prev" class="prev">&lt;</a>
+    <ul class="images">
+	{% for image in gallery.image_set.all %}
+	<li class="image">	
+	    <img src="{% thumbnail image.image 434x289 %}" alt="{{ image.title }}">
+	    
+	    <div class="imageText">
+		<h1>{{ image.title }}</h1>
+		<p>{{ image.caption }}</p>
+	    </div>
+	</li>
+	{% endfor %}
+    </ul>
+    <a href="#next" class="next">&gt;</a>
+    <div class="thumb-container">
+	<a href="#prev" class="thumb-prev">^</a>
+	<ul class="thumbs">
+	    {% for image in gallery.image_set.all %}
+	    <li class="thumb">
+		<img src="{% thumbnail image.image 92x61 %}" alt="{{ image.title }}" title="{{ image.title }}"/>
+	    </li>
+	    {% endfor %}
+	</ul>
+	<a href="#next" class="thumb-next">&lt;</a>
+    </div>
+</div>

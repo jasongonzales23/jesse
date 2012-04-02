@@ -221,6 +221,7 @@ body {
     color:#fff;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
     font-size:12px;
+    background:#808080;
 }
 
 p {
@@ -410,14 +411,44 @@ footer {
 }
 
 
+/*GALLERY STYLES*/
 
+.gallery {
+    position:relative;
+}
 
+.images, .thumbs {
+    list-style: none;
+    padding: 0;
+}
 
+.prev {
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    padding: 10px;
+}
 
+.next {
+    display:block;
+    position:absolute;
+    right:0;
+    top:0;
+    padding: 10px;
+}
 
+.thumb-container {
+    position: absolute;
+    right: -80px;
+    top: 0;
+    height: 300px;
+    background: black;
+}
 
-
-
+.thumb.active {
+    border:2px solid #fff;
+}
 
 
 
