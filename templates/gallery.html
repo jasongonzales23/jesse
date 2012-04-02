@@ -17,7 +17,7 @@
     </ul>
     <a href="#next" class="next">&gt;</a>
     <div class="thumb-container">
-	<a href="#prev" class="thumb-prev">^</a>
+	<a href="#next" class="thumb-next">^</a>
 	<ul class="thumbs">
 	    {% for image in gallery.image_set.all %}
 	    <li class="thumb">
@@ -25,6 +25,7 @@
 	    </li>
 	    {% endfor %}
 	</ul>
-	<a href="#next" class="thumb-next">&lt;</a>
+	<a href="#prev" class="thumb-prev">v</a>
+
     </div>
 </div>
