@@ -2,11 +2,11 @@
 
 <h1>{{ gallery.name }}</h1>
 <div id="{{ gallery.name|lower }}" class="gallery">
-    <a href="#prev" class="prev">&lt;</a>
+    <a href="#prev" class="prev icon-back"></a>
     <ul class="images">
 	{% for image in gallery.image_set.all %}
 	<li class="image">	
-	    <img src="{% thumbnail image.image 434x289 %}" alt="{{ image.title }}">
+	    <img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}">
 	    
 	    <div class="imageText">
 		<h1>{{ image.title }}</h1>
@@ -15,13 +15,13 @@
 	</li>
 	{% endfor %}
     </ul>
-    <a href="#next" class="next">&gt;</a>
+    <a href="#next" class="next icon-forward"></a>
     <div class="thumb-container">
 	<a href="#next" class="thumb-next">^</a>
 	<ul class="thumbs">
 	    {% for image in gallery.image_set.all %}
 	    <li class="thumb">
-		<img src="{% thumbnail image.image 92x61 %}" alt="{{ image.title }}" title="{{ image.title }}"/>
+		<img class="thumbnail" src="{% thumbnail image.image 92x61 crop %}" alt="{{ image.title }}" title="{{ image.title }}"/>
 	    </li>
 	    {% endfor %}
 	</ul>

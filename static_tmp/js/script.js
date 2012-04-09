@@ -8,6 +8,7 @@ var gallery = function(element){
     
     this.init = function(element){
         this.i=0;
+        this.j=0;
         this.element = $(element);
         this.images = this.element.find('.image');
         this.galleryLength = this.images.length;
@@ -18,9 +19,12 @@ var gallery = function(element){
         this.thumbPrev = this.element.find('.thumb-prev');
         this.thumbNext = this.element.find('.thumb-next');
         this.thumbControlOffset = 16;
+        //calculate thumb height??
         this.images.hide();
         this.showImages();
         this.bindButtons();
+        this.bindThumbs();
+        this.bindThumbButtons();
     }
     
     this.bindButtons = function(){
@@ -38,16 +42,28 @@ var gallery = function(element){
     
     this.bindThumbButtons = function(){
         var that = this;
-        
         this.thumbNext.on('click', function(){
-            this.currentThumbOffset
-            this.navThumb();
+            //this.currentThumbOffset
+            that.j++;
+            that.navThumb();
         });
         
         this.thumbPrev.on('click', function(){
-            this.navThumb();
+            that.j--;
+            that.navThumb(1);
         });
         
+    };
+    
+    this.bindThumbs = function(){
+        var that = this;
+        this.thumbStrip.on('click', function(e){
+            var $targ = $(e.target);
+            if ($targ.hasClass('thumbnail')){
+                that.i = $targ.parents('li').index();
+                that.showImages();
+            }
+        });
     };
     
     this.showImages = function(){
@@ -62,31 +78,46 @@ var gallery = function(element){
         this.thumbnails.removeClass('active');
         this.images.eq(this.i).show();
         this.thumbnails.eq(this.i).addClass('active');
+        this.j = this.i;
         this.selectThumb();
     };
     
     this.selectThumb = function(){
         var that = this;
         this.thumbStrip.animate(
-            {'marginTop': (this.i*-65) + this.thumbControlOffset + 'px'}, 300, function(){
-                that.currentThumbOffset = that.thumbStrip.css('marginTop');
-                console.log(that.currentThumbOffset);
+            {'marginTop': (that.i*-65) + that.thumbControlOffset + 'px'}, 300, function(){
+                //that.currentThumbOffset = that.thumbStrip.css('marginTop');
+                //TODO remove callback?
         });
-
     };
     
     this.navThumb = function(){
-        this.currentThumbOffset = this.thumbStrip.css('marginTop');
-        console.log(this.currentThumbOffset);
-        this.thumbStrip.animate(
-            {'marginTop': (this.i*-65) + this.thumbControlOffset + 'px'}, 300, function(){
-                
-            }
-        );
+        var that = this;
+        //this.currentThumbOffset = /*this.thumbStrip.offset().top;*/this.thumbStrip.css('marginTop');// - value * 65;
+        //console.log(this.currentThumbOffset);
+        //var increment = (value * 65);// + this.thumbControlOffset;
+        if ( this.j < 0 ) {
+            //disable shit
+            console.log('zero');
+            this.j = 0;
+            return;
+        }
+        if ( this.j > this.galleryLength - 1){
+            console.log('too long')
+            this.j = this.galleryLength -1;
+            return;
+        }
+        else{
+            this.thumbStrip.animate(
+                {'marginTop': (that.j*-65) + that.thumbControlOffset + 'px'}, 300, function(){
+                //TODO remove callback?
+                }
+            );
+        }
     };
     
 };
 
 
-var landscapes = new gallery();
-landscapes.init('#landscapes');
+var gallery = new gallery();
+gallery.init('.gallery');
