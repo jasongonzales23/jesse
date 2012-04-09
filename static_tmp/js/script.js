@@ -80,6 +80,7 @@ var gallery = function(element){
         this.j = this.i;
         this.selectThumb();
         this.checkThumbNavStatus();
+        this.updateCounter();
     };
     
     this.selectThumb = function(){
@@ -115,11 +116,15 @@ var gallery = function(element){
         else{
             return true;
         }
-        
-        
+    };
+    
+    this.updateCounter = function(){
+        $('.number').html(this.i +1);
+        $('.max').html(this.galleryLength);
     };
 };
 
 
+// TODO what if multiple galleries per page??
 var gallery = new gallery();
 gallery.init('.gallery');
