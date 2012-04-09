@@ -25,6 +25,7 @@ var gallery = function(element){
         this.bindButtons();
         this.bindThumbs();
         this.bindThumbButtons();
+        this.checkThumbNavStatus();
     }
     
     this.bindButtons = function(){
@@ -80,6 +81,7 @@ var gallery = function(element){
         this.thumbnails.eq(this.i).addClass('active');
         this.j = this.i;
         this.selectThumb();
+        this.checkThumbNavStatus();
     };
     
     this.selectThumb = function(){
@@ -93,21 +95,20 @@ var gallery = function(element){
     
     this.navThumb = function(){
         var that = this;
-        //this.currentThumbOffset = /*this.thumbStrip.offset().top;*/this.thumbStrip.css('marginTop');// - value * 65;
-        //console.log(this.currentThumbOffset);
-        //var increment = (value * 65);// + this.thumbControlOffset;
+        var status = this.checkThumbNavStatus();
+        /*
         if ( this.j < 0 ) {
-            //disable shit
-            console.log('zero');
             this.j = 0;
+            
             return;
         }
         if ( this.j > this.galleryLength - 1){
-            console.log('too long')
             this.j = this.galleryLength -1;
             return;
         }
         else{
+        */
+        if(status){
             this.thumbStrip.animate(
                 {'marginTop': (that.j*-65) + that.thumbControlOffset + 'px'}, 300, function(){
                 //TODO remove callback?
@@ -116,6 +117,25 @@ var gallery = function(element){
         }
     };
     
+    this.checkThumbNavStatus= function(){
+        this.thumbPrev.removeClass('disabled');
+        this.thumbNext.removeClass('disabled');
+        if (this.j <= 0){
+            this.thumbPrev.addClass('disabled');
+            this.j=0;
+            return false;
+        }
+        if (this.j > this.galleryLength-1){
+            this.thumbNext.addClass('disabled');
+            this.j = this.galleryLength -1;
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+        
+    };
 };
 
 
