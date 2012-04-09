@@ -25,7 +25,6 @@ var gallery = function(element){
         this.bindButtons();
         this.bindThumbs();
         this.bindThumbButtons();
-        this.checkThumbNavStatus();
     }
     
     this.bindButtons = function(){
@@ -44,14 +43,13 @@ var gallery = function(element){
     this.bindThumbButtons = function(){
         var that = this;
         this.thumbNext.on('click', function(){
-            //this.currentThumbOffset
             that.j++;
             that.navThumb();
         });
         
         this.thumbPrev.on('click', function(){
             that.j--;
-            that.navThumb(1);
+            that.navThumb();
         });
         
     };
@@ -87,32 +85,16 @@ var gallery = function(element){
     this.selectThumb = function(){
         var that = this;
         this.thumbStrip.animate(
-            {'marginTop': (that.i*-65) + that.thumbControlOffset + 'px'}, 300, function(){
-                //that.currentThumbOffset = that.thumbStrip.css('marginTop');
-                //TODO remove callback?
-        });
+            {'marginTop': (that.i*-65) + that.thumbControlOffset + 'px'}, 300
+        );
     };
     
     this.navThumb = function(){
         var that = this;
         var status = this.checkThumbNavStatus();
-        /*
-        if ( this.j < 0 ) {
-            this.j = 0;
-            
-            return;
-        }
-        if ( this.j > this.galleryLength - 1){
-            this.j = this.galleryLength -1;
-            return;
-        }
-        else{
-        */
         if(status){
             this.thumbStrip.animate(
-                {'marginTop': (that.j*-65) + that.thumbControlOffset + 'px'}, 300, function(){
-                //TODO remove callback?
-                }
+                {'marginTop': (that.j*-65) + that.thumbControlOffset + 'px'}, 300
             );
         }
     };
@@ -120,12 +102,12 @@ var gallery = function(element){
     this.checkThumbNavStatus= function(){
         this.thumbPrev.removeClass('disabled');
         this.thumbNext.removeClass('disabled');
-        if (this.j <= 0){
+        if (this.j < 0){
             this.thumbPrev.addClass('disabled');
             this.j=0;
             return false;
         }
-        if (this.j > this.galleryLength-1){
+        if (this.j > this.galleryLength -1){
             this.thumbNext.addClass('disabled');
             this.j = this.galleryLength -1;
             return false;
