@@ -128,3 +128,5 @@ var gallery = function(element){
 // TODO what if multiple galleries per page??
 var gallery = new gallery();
 gallery.init('.gallery');
+
+

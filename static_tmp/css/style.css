@@ -299,7 +299,7 @@ header h1 span.ryan {
     color: #a4a4a4;
 }
 
-#nav {
+#nav, #nav ul {
     list-style:none;
     margin:0 17px;
     padding:0;
@@ -315,11 +315,11 @@ header h1 span.ryan {
     display:block;
 }
 
-#nav li {
+#nav > li {
     border-top:1px solid #fff;
 }
 
-#nav li:last-child{
+#nav > li:last-child{
     border-bottom:1px solid #fff;
 }
 

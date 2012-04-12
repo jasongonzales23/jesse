@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block body_class %}about{% endblock %}
+{% block base_content %}
+    <div id="content">
+	<div id="top-content">
+	    <div class="top-content-inner">
+		<h1>About</h1>
+		{% placeholder about_content %}
+	    </div>
+	</div>
+    </div>
+{% endblock %}
