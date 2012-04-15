@@ -18,7 +18,7 @@ var gallery = function(element){
         this.thumbStrip = this.element.find('.thumbs');
         this.thumbPrev = this.element.find('.thumb-prev');
         this.thumbNext = this.element.find('.thumb-next');
-        this.thumbControlOffset = 16;
+        this.thumbControlOffset = 1;
         //calculate thumb height??
         this.images.hide();
         this.showImages();
@@ -86,7 +86,7 @@ var gallery = function(element){
     this.selectThumb = function(){
         var that = this;
         this.thumbStrip.animate(
-            {'marginTop': (that.i*-65) + that.thumbControlOffset + 'px'}, 300
+            {'marginTop': (that.i*-66) + that.thumbControlOffset + 'px'}, 300
         );
     };
     
@@ -95,7 +95,7 @@ var gallery = function(element){
         var status = this.checkThumbNavStatus();
         if(status){
             this.thumbStrip.animate(
-                {'marginTop': (that.j*-65) + that.thumbControlOffset + 'px'}, 300
+                {'marginTop': (that.j*-66) + that.thumbControlOffset + 'px'}, 300
             );
         }
     };

@@ -367,7 +367,7 @@ header h1 span.ryan {
     opacity:1;
 }
 
-#top-content, #bottom-content {
+#top-content, #bottom-content, .gallery-wrapper {
     padding:16px 20px;
 }
 
@@ -376,11 +376,6 @@ header h1 span.ryan {
     background:rgba(0,0,0,.5);
 }
 
-/*.top-content-inner h2 {*/
-/*    margin:0;*/
-/*    font-size:20px;*/
-/*    font-family: 'Enriqueta', serif;*/
-/*}*/
 .bottom-content-inner p {
     margin:14px 0;
 }
@@ -441,8 +436,19 @@ footer {
 }
 
 .images {
-    margin: 0 0 0 40px;
     
+}
+
+.image-background {
+    background:#1a1a1a;
+    margin:0 -20px;
+    padding: 20px 0 30px 0;
+    position:relative;
+}
+
+.image img {
+    display: block;
+    margin: 0 auto;
 }
 
 .prev {
@@ -450,24 +456,40 @@ footer {
     position:absolute;
     left:0;
     top:0;
-    padding: 10px;
+    padding: 0 10px;
+    height: 100%;
+    background:url(../img/sprite.png) 10px 50% no-repeat;
+    width: 20px;
+}
+
+.prev:hover {
+    background:url(../img/sprite.png) -25px 50% no-repeat;
 }
 
 .next {
-    display:block;
-    position:absolute;
-    right:0;
-    top:0;
-    padding: 10px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 10px;
+    height: 100%;
+    background: url(../img/sprite.png) -69px 50% no-repeat;
+    width: 20px;
+}
+
+.next:hover {
+    background:url(../img/sprite.png) -104px 50% no-repeat;
 }
 
 .thumb-container {
     position: absolute;
-    right: -95px;
-    top: 0;
-    height: 300px;
-    background: black;
-    overflow:hidden;
+    right: -86px;
+    top: 41px;
+    height: 263px;
+    background: #262626;
+    overflow: hidden;
+    border: 1px solid black;
+    box-shadow: 0px 0px 7px black;
 }
 
 .thumbs {
@@ -475,26 +497,45 @@ footer {
 
 .thumb-prev {
     position: absolute;
-    bottom: 0;
+    top: 306px;
     display: block;
-    width: 100%;
-    background: black;
+    width: 42px;
+    background: #262626;
+    height: 20px;
+    right: -74px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index:-10;
 }
 
 .thumb-next {
-    position:absolute;
-    top:0;
+    position: absolute;
+    top: 21px;
     display: block;
-    width: 100%;
-    background: black;
+    width: 42px;
+    background: #262626;
+    height: 20px;
+    right: -74px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .thumb {
-    border:2px solid #000;
+    background:#404040;
+    border-bottom: 2px solid #000;
+    padding: 8px;
+    box-shadow: 0px 0px 3px #fff;
 }
 
-.thumb.active {
-    border:2px solid #fff;
+.thumb img {
+    border:3px solid #262626;
+    display: block;
+    border-radius: 3px;
+}
+
+.thumb.active img{
+    border:3px solid #fff;
+    margin:0;
 }
 
 

@@ -1,32 +1,36 @@
 {% load thumbnail %}
-
-<h1>{{ gallery.name }}</h1>
-<div class="counter"><span class="number"></span> of <span class="max"></span></div>
-<div id="{{ gallery.name|lower }}" class="gallery">
-    <a href="#prev" class="prev icon-back"></a>
-    <ul class="images">
-	{% for image in gallery.image_set.all %}
-	<li class="image">	
-	    <img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}">
+<div class="gallery-wrapper">
+    <h2>{{ gallery.name }}<span class="counter"><span class="number"></span>/<span class="max"></span></span></h2>
+    
+    <div id="{{ gallery.name|lower }}" class="gallery">
 	    
-	    <div class="imageText">
-		<h1>{{ image.title }}</h1>
-		<p>{{ image.caption }}</p>
-	    </div>
-	</li>
-	{% endfor %}
-    </ul>
-    <a href="#next" class="next icon-forward"></a>
-    <div class="thumb-container">
-	<a href="#next" class="thumb-next">^</a>
-	<ul class="thumbs">
-	    {% for image in gallery.image_set.all %}
-	    <li class="thumb">
-		<img class="thumbnail" src="{% thumbnail image.image 92x61 crop %}" alt="{{ image.title }}" title="{{ image.title }}"/>
-	    </li>
-	    {% endfor %}
-	</ul>
-	<a href="#prev" class="thumb-prev">v</a>
-
+	    <ul class="images">
+		{% for image in gallery.image_set.all %}
+		<li class="image">
+		    <div class="image-background">
+			<a href="#prev" class="prev"></a>
+			<img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}">
+			<a href="#next" class="next"></a>
+		    </div>
+		    <div class="imageText">
+			<h1>{{ image.title }}</h1>
+			<p>{{ image.caption }}</p>
+		    </div>
+		</li>
+		{% endfor %}
+	    </ul>
+	<a href="#next" class="thumb-next"></a>    
+	<div class="thumb-container">
+	    
+	    <ul class="thumbs">
+		{% for image in gallery.image_set.all %}
+		<li class="thumb">
+		    <img class="thumbnail" src="{% thumbnail image.image 42x42 crop %}" alt="{{ image.title }}" title="{{ image.title }}"/>
+		</li>
+		{% endfor %}
+	    </ul>
+	    
+	</div>
+	<a href="#prev" class="thumb-prev"></a>
     </div>
 </div>
