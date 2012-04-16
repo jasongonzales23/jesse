@@ -3,7 +3,6 @@ Jason Gonzales
 
 */
 
-
 var gallery = function(element){
     
     this.init = function(element){
@@ -25,6 +24,8 @@ var gallery = function(element){
         this.bindButtons();
         this.bindThumbs();
         this.bindThumbButtons();
+        this.imgHover();
+        this.getFullSize();
     }
     
     this.bindButtons = function(){
@@ -93,24 +94,24 @@ var gallery = function(element){
     this.navThumb = function(){
         var that = this;
         var status = this.checkThumbNavStatus();
-        if(status){
             this.thumbStrip.animate(
-                {'marginTop': (that.j*-66) + that.thumbControlOffset + 'px'}, 300
+                {'marginTop': (that.j*-66) + that.thumbControlOffset + 'px'}, 300, function(){
+                    
+                }
             );
-        }
     };
     
     this.checkThumbNavStatus= function(){
         this.thumbPrev.removeClass('disabled');
         this.thumbNext.removeClass('disabled');
         if (this.j < 0){
-            this.thumbPrev.addClass('disabled');
-            this.j=0;
+            //this.thumbPrev.addClass('disabled');
+            this.j= this.galleryLength-1;
             return false;
         }
         if (this.j > this.galleryLength -1){
-            this.thumbNext.addClass('disabled');
-            this.j = this.galleryLength -1;
+            //this.thumbNext.addClass('disabled');
+            this.j = 0;
             return false;
         }
         else{
@@ -122,6 +123,43 @@ var gallery = function(element){
         $('.number').html(this.i +1);
         $('.max').html(this.galleryLength);
     };
+    
+    this.imgHover = function(){
+        $('.imgControl').on('mouseenter', function(e){
+            $('.fullScreen').show();
+        });
+        $('.imgControl').on('mouseleave', function(e){
+            $('.fullScreen').hide();
+        });
+    };
+    
+    this.getFullSize = function(){
+        var that = this;
+        $('.imgControl').on('click', function(e){
+            var fullSize = this.dataset.fullsize;
+            var html = '<div class="fullsize-container">';
+            html += '<img src="'+ fullSize +'" class="full"/>';
+            html += '<div class="close">Click Anywhere to Close</div>';
+            html += '</div>';
+            $('body').append('<div id="blanket"></div>').append(html);
+            $('.full').hide();
+            
+            $('.full').load(function(){
+                $(this).fadeIn();
+                that.center('.full');
+                $(window).resize(function(){that.center('.full')});                
+            });
+            
+        });
+
+    };
+    
+    this.center = function(el){
+        var $el = $(el);
+        $el.css("top", (($(window).height() - $el.outerHeight()) / 2) + $(window).scrollTop() + "px");
+        $el.css("left", (($(window).width() - $el.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+    };
+    
 };
 
 
@@ -130,3 +168,13 @@ var gallery = new gallery();
 gallery.init('.gallery');
 
 
+$(document).on('click','#blanket', function(){
+    $('#blanket').remove();
+    $('.fullsize-container').remove();
+});
+
+
+$(document).on('click','.fullsize-container', function(){
+    $('#blanket').remove();
+    $('.fullsize-container').remove();
+});

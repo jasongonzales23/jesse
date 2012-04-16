@@ -9,7 +9,10 @@
 		<li class="image">
 		    <div class="image-background">
 			<a href="#prev" class="prev"></a>
-			<img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}">
+			<div class="imgControl" data-fullsize="{{MEDIA_URL}}{{image.image}}">
+			    <div class="fullScreen"></div>
+			    <img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}">
+			</div>
 			<a href="#next" class="next"></a>
 		    </div>
 		    <div class="imageText">
