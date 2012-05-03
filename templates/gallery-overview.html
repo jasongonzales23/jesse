@@ -1,0 +1,12 @@
+{% load thumbnail %}
+{% load cms_tags %}
+<div class="gallery-wrapper">
+    <h2>{{ gallery.name }}</h2>
+    {% for image in gallery.image_set.all %}
+    {% if forloop.first %}
+    <p><img src="{% thumbnail image.image 376x0 %}" alt="{{ image.title }}"></p>
+    {% endif %}
+    {% endfor %}
+    <p>{{ gallery.description}}</p>
+    <p>URL: {{ gallery.get_absolute_url }}</p>
+</div>

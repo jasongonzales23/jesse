@@ -246,8 +246,8 @@ p {
     
 }
 
-.home {
-    background:#000 url(../img/big-bg.png) 50% 0 no-repeat;
+.home, .about, .news, .links {
+    background:#000 url(../img/big-bg.png) 0 0 no-repeat;
 }
 
 h2 {
@@ -264,7 +264,6 @@ li a {
 
 #container {
     width: 982px;
-    margin:0 auto;
 }
 
 header {
@@ -359,7 +358,9 @@ header h1 span.ryan {
 
 #main-content {
     background:rgba(0,0,0,.5);
-    height: 640px;
+    height:auto;
+    min-height: 640px;
+    position:relative;
     /*opacity:.5;*/
 }
 
@@ -416,14 +417,61 @@ h2.category-heading {
 }
 
 footer {
-    float: right;
-    clear: both;
+/*    float: right;
+    clear: both;*/
     color: #939393;
     font-size: 10px;
-    margin: 0 20px
+    margin: 0 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/*PORTFOLIO OVERVIEW */
+
+.portfolio-overview #content{
+    padding: 20px 0 0 0;
 }
 
+.portfolio-overview .teaser {
+    margin: 0 20px 20px 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, .5);
+    overflow: auto;
+}
 
+.portfolio-overview .teaser h2 {
+    margin: 0px 30px 20px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+}
+
+.portfolio-overview .teaser img {
+    width: 200px;
+    float: left;
+}
+
+.portfolio-overview .teaser p {
+    width: 310px;
+    float: left;
+    margin: 0 0 0 20px;
+}
+
+.portfolio-overview .teaser .more {
+    display:block;
+    float:right;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 8px 10px;
+    border: 1px solid #ADADAB;
+    color: #ADADAB;
+    margin: 20px 40px 0 0;
+}
+
+.portfolio-overview .teaser .more:hover {
+    border: 1px solid white;
+    color: white;
+}
 /*GALLERY STYLES*/
 
 .gallery {
@@ -433,6 +481,10 @@ footer {
 .images, .thumbs {
     list-style: none;
     padding: 0;
+}
+
+.counter {
+    float: right;
 }
 
 .images {

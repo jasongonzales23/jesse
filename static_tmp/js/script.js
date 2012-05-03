@@ -2,7 +2,6 @@
 Jason Gonzales
 
 */
-
 var gallery = function(element){
     
     this.init = function(element){
@@ -138,6 +137,7 @@ var gallery = function(element){
         $('.imgControl').on('click', function(e){
             var fullSize = this.dataset.fullsize;
             var html = '<div class="fullsize-container">';
+            html += '<p class="loading">loading...</p>';
             html += '<img src="'+ fullSize +'" class="full"/>';
             html += '<div class="close">Click Anywhere to Close</div>';
             html += '</div>';
@@ -178,3 +178,21 @@ $(document).on('click','.fullsize-container', function(){
     $('#blanket').remove();
     $('.fullsize-container').remove();
 });
+
+$('#nav').on('click', 'a', function(e){
+    //does it have child li's?
+    var hasChildren = function(el){
+        var count = $(el).parents('li').find('a').length;
+        return count;
+    };
+    
+    if (hasChildren(this) > 0){
+        var kids = $(el).parents('li').find('a');
+        console.log(kids)
+        //kids.toggle('slow');
+        //e.preventDefault;
+        return false;
+    }
+
+});
+

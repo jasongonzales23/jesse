@@ -19,4 +19,18 @@ class GalleryPlugin(CMSPluginBase):
         })
         return context
     
+class GalleryOverviewPlugin(CMSPluginBase):
+    model = GalleryPluginModel
+    name = _("Gallery Overview")
+    render_template = "gallery-overview.html"
+    
+    def render(self, context, instance, placeholder):
+        context.update({
+            'gallery':instance.gallery,
+            'object':instance,
+            'placeholder':placeholder
+        })
+        return context
+    
 plugin_pool.register_plugin(GalleryPlugin)
+plugin_pool.register_plugin(GalleryOverviewPlugin)
