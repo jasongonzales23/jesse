@@ -653,6 +653,16 @@ footer {
     padding:10px 20px;
 }
 
+/* LINKS */
+.links h2 {
+    margin: 0 0 20px 0;
+}
+
+.links .plugin_link {
+    display:block;
+    margin:0 30px 20px 0;
+}
+
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
