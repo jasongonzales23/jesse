@@ -344,16 +344,35 @@ header h1 span.ryan {
 }
 
 #topnav li {
-
     float:left;
     margin:0 5px 0 0;
-}
-
-#topnav li a {
     border-right: 1px solid #fff;
     padding: 0 5px 0 0;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
     font-size:11px;
+}
+
+#topnav li:last-child {
+    border-right:none;
+}
+
+#topnav .plugin_file, #topnav .plugin_link, .links footer .plugin_link {
+    margin:0;
+    display:inline-block;
+}
+
+#topnav .filesize {
+    display:none;
+}
+
+#topnav .plugin_link a, footer .plugin_link a, footer .plugin_link a:hover{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    font-size:11px;
+    font-weight:normal;
+    display:inline-block;
+    padding:0;
+    border:none;
+    color:#fff;
 }
 
 #main-content {
@@ -404,11 +423,17 @@ header h1 span.ryan {
     color:#adadab;
 }
 
+footer .plugin_link a {
+    color:#939393;
+}
+
+footer .plugin_link a:hover {
+    color:#fff;
+}
 
 .plugin_link a:hover {
     border:1px solid #fff;
     color:#fff;
-    
 }
 
 h2.category-heading {

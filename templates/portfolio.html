@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% load cms_tags %}
 {% block body_class %}portfolio-overview{% endblock %}
+{% block topnav %}
+    <li>{% show_placeholder "cv" "topmatter"%}</li>
+    <li>{% show_placeholder "twitter" "topmatter"%}</li>
+    <li>{% show_placeholder "about" "topmatter"%}</li>
+    <li>{% show_placeholder "contact" "topmatter"%}</li>
+{% endblock %}
 {% block base_content %}
     <div id="content">
 	{% placeholder gallery %}
     </div>
+{% endblock %}
+{% block foot_contact %}
+    {% show_placeholder "contact" "footermatter"%}
 {% endblock %}

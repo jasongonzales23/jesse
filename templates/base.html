@@ -47,16 +47,13 @@
         <div id="main" role="main">
             <div id="top-container">
                 <ul id="topnav">
-                    <li><a href="">download my cv</a></li>
-                    <li><a href="">twitter</a></li>
-                    <li><a href="">about</a></li>
-                    <li><a href="">contact</a></li>
+		{% block topnav %}{% endblock %}
                 </ul>
             </div>
           <div id="main-content">
             {% block base_content %} {% endblock %}
             <footer>
-                <p class="copyright">&copy; {% now "Y"%} Jesse Kuroiwa | <a href="">Contact Us</a> | <a href="">About</a> | Boulder Colorado</p>
+                <p class="copyright">&copy; {% now "Y"%} Jesse Kuroiwa | {% block foot_contact %}{% endblock %} | <a href="/about/">About</a> | Boulder Colorado</p>
             </footer>
           </div>
         </div>
