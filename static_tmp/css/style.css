@@ -361,6 +361,10 @@ header h1 span.ryan {
     display:inline-block;
 }
 
+#topnav .plugin_file img {
+    display:none;
+}
+
 #topnav .filesize {
     display:none;
 }
