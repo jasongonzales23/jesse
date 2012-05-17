@@ -142,11 +142,13 @@ var gallery = function(element){
             html += '<div class="close">Click Anywhere to Close</div>';
             html += '</div>';
             $('body').append('<div id="blanket"></div>').append(html);
+            that.center($('.fullsize-container'));
             $('.full').hide();
             
             $('.full').load(function(){
                 $(this).fadeIn();
                 that.center('.full');
+                $('.loading').remove;
                 $(window).resize(function(){that.center('.full')});                
             });
             
