@@ -422,7 +422,7 @@ p .plugin_link a, p .plugin_link a:hover {
     display: inline;
     border: none;
     font-weight: normal;
-    padding: 0 .3em 0 0;
+    padding: 0;
     text-decoration: underline;
 }
 
@@ -698,6 +698,11 @@ footer {
 /* LINKS */
 .links h2 {
     margin: 0 0 20px 0;
+}
+
+.links p .plugin_link {
+    display:inline;
+    margin:0;
 }
 
 .links .plugin_link {
