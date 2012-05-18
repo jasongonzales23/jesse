@@ -436,6 +436,10 @@ p .plugin_link a, p .plugin_link a:hover {
     color:#adadab;
 }
 
+p.copyright .plugin_link a {
+    text-decoration:none;
+}
+
 footer .plugin_link a {
     color:#939393;
 }
