@@ -43,12 +43,12 @@ var gallery = function(element){
     this.bindThumbButtons = function(){
         var that = this;
         this.thumbNext.on('click', function(){
-            that.j++;
+            that.j--;
             that.navThumb();
         });
         
         this.thumbPrev.on('click', function(){
-            that.j--;
+            that.j++;
             that.navThumb();
         });
         
