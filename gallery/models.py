@@ -17,7 +17,7 @@ class Image(models.Model):
     gallery = models.ForeignKey(Gallery)
     order = models.IntegerField()
     image = models.ImageField(upload_to="uploads/galleryImages/")
-    title = models.CharField(max_length=255, blank=True)
+    title = models.TextField(max_length=1255, blank=True)
     caption = models.TextField(max_length=10000, blank=True)
     
     class Meta:

@@ -305,14 +305,23 @@ header h1 span.ryan {
     padding:0;
 }
 
+#nav li.selected > a {
+    color:#fff;
+    font-weight:bold;
+}
+
 #nav li a{
     text-transform:uppercase;
     font-family: 'Lato', sans-serif;
-    color:#fff;
+    color:#A4A4A4;
     font-size:16px;
-    font-weight:900;
+    font-weight:normal;
     padding:9px 0;
     display:block;
+}
+
+#nav li a:hover {
+    color:#fff;
 }
 
 #nav > li {
@@ -322,6 +331,10 @@ header h1 span.ryan {
 #nav > li:last-child{
     border-bottom:1px solid #fff;
 }
+
+/*#nav .sibling a, #nav .descendent a{*/
+/*    color: #A4A4A4;*/
+/*}*/
 
 #main {
     float:left;
@@ -355,6 +368,10 @@ header h1 span.ryan {
 
 #topnav li:last-child {
     border-right:none;
+}
+
+#topnav li a:hover {
+    text-decoration:underline;
 }
 
 #topnav .plugin_file, #topnav .plugin_link, .links footer .plugin_link {
@@ -444,8 +461,9 @@ footer .plugin_link a {
     color:#939393;
 }
 
-footer .plugin_link a:hover {
+footer .plugin_link a:hover, footer a:hover  {
     color:#fff;
+    text-decoration:underline;
 }
 
 .plugin_link a:hover {
