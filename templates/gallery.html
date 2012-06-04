@@ -16,8 +16,8 @@
 			<a href="#next" class="next"></a>
 		    </div>
 		    <div class="imageText">
-			<h2>{{ image.title }}</h2>
-			<p>{{ image.caption }}</p>
+			<h2>{{ image.title|linebreaksbr }}</h2>
+			<p>{{ image.caption|linebreaksbr }}</p>
 		    </div>
 		</li>
 		{% endfor %}
