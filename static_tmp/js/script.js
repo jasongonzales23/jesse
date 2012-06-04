@@ -198,3 +198,8 @@ $('#nav').on('click', 'a', function(e){
 
 });
 
+if (typeof images != 'undefined'){
+  $('body').css({'background-image': 'url(' + images[Math.floor(Math.random() * images.length)] + ')'});
+}
+
+$("a[href^='http://']").attr("target","_blank");

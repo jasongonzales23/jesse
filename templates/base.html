@@ -51,7 +51,7 @@
                 </ul>
             </div>
           <div id="main-content">
-            {% block base_content %} {% endblock %}
+            {% block base_content %}{% endblock %}
             <footer>
                 <p class="copyright">&copy; {% now "Y"%} Jesse Kuroiwa | {% block foot_contact %}{% endblock %} | <a href="/about/">About</a> | Boulder Colorado</p>
             </footer>
@@ -66,7 +66,7 @@
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
+    {% block random_bg %}{% endblock %} 
   <!-- scripts concatenated and minified via build script -->
   <script src="{{STATIC_URL}}js/plugins.js"></script>
   <script src="{{STATIC_URL}}js/script.js"></script>

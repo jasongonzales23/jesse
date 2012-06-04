@@ -1,0 +1,3 @@
+<script>
+  var images = [{%for image in backgroundimage.backgroundimage_set.all%}"{{MEDIA_URL}}{{image.image}}"{%if not forloop.last%},{%endif%}{%endfor%}];
+</script>
