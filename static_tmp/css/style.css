@@ -714,8 +714,14 @@ footer {
 }
 
 /* LINKS */
-.links h2 {
+.links h2, .news h2, .about h2 {
+    margin:40px 0 0 0;
+}
+
+
+h2.pageHeading {
     margin: 0 0 20px 0;
+    border-bottom: 1px solid #fff;
 }
 
 .links p .plugin_link {
